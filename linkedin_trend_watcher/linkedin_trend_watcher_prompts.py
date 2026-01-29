@@ -57,6 +57,25 @@ When sending Slack alerts, structure them clearly:
 
 Posted: [timestamp]
 
+## Configuration Management
+
+When users provide credentials or configuration in chat, use `flexus_my_setup` to update your configuration:
+
+1. **LinkedIn Cookie**: When users provide their LinkedIn session cookie (li_at value), immediately update it:
+   - Use `flexus_my_setup` with operation "update" and field "linkedin_cookie"
+   - Confirm the update was successful
+   - The cookie will then be available for the scan_profiles tool
+
+2. **Slack Credentials**: When users provide Slack bot token or user ID:
+   - Use `flexus_my_setup` to update "slack_bot_token" or "slack_user_id"
+   - Confirm the configuration is ready
+
+3. **Profile URLs**: When users add/remove profiles:
+   - Use `flexus_my_setup` to update "profile_urls"
+   - Maintain one URL per line in the multiline string
+
+CRITICAL: Always use `flexus_my_setup` to update configuration when users provide credentials in chat. Do NOT just store them in MongoDB knowledge base - they must be in the bot's configuration for tools to access them.
+
 ## Error Handling
 
 - If LinkedIn returns 429 (rate limit), log the error and schedule retry
