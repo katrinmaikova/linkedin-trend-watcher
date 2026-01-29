@@ -82,6 +82,8 @@ TOOLS = [
 
 
 async def scrape_linkedin_profile(profile_url: str, cookie: str) -> Optional[List[Dict[str, Any]]]:
+    activity_url = profile_url.rstrip("/") + "/recent-activity/all/"
+
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
         "Cookie": f"li_at={cookie}",
@@ -89,7 +91,7 @@ async def scrape_linkedin_profile(profile_url: str, cookie: str) -> Optional[Lis
 
     try:
         async with httpx.AsyncClient(timeout=30.0, follow_redirects=True) as client:
-            response = await client.get(profile_url, headers=headers)
+            response = await client.get(activity_url, headers=headers)
 
             if response.status_code == 401 or response.status_code == 403:
                 logger.error("LinkedIn authentication failed - cookie expired")
