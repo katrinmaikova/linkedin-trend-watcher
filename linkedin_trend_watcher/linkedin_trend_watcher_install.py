@@ -137,8 +137,8 @@ async def install(
             ("default", ckit_bot_install.FMarketplaceExpertInput(
                 fexp_system_prompt=linkedin_trend_watcher_prompts.linkedin_trend_watcher_prompt,
                 fexp_python_kernel=LINKEDIN_TREND_WATCHER_DEFAULT_LARK,
-                fexp_block_tools="*setup*",
-                fexp_allow_tools="",
+                fexp_block_tools="",
+                fexp_allow_tools="*",
                 fexp_app_capture_tools=bot_internal_tools,
                 fexp_description="Main expert that monitors LinkedIn profiles, analyzes posts, and sends Slack alerts.",
             )),
