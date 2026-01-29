@@ -56,7 +56,7 @@ linkedin_trend_watcher_setup_schema = [
     {
         "bs_name": "profile_urls",
         "bs_type": "string_multiline",
-        "bs_default": "https://www.linkedin.com/in/kieranjflanagan/\nhttps://www.linkedin.com/in/lizaadams/\nhttps://www.linkedin.com/in/andycrestodina/",
+        "bs_default": "https://www.linkedin.com/in/katrin-maikova/\nhttps://www.linkedin.com/in/kieranjflanagan/\nhttps://www.linkedin.com/in/lizaadams/\nhttps://www.linkedin.com/in/andycrestodina/",
         "bs_group": "LinkedIn Configuration",
         "bs_order": 2,
         "bs_importance": 2,
